@@ -20,7 +20,7 @@ let themes = [
         "speed": 2, "speedAdjFactor": 0, "density": 2, "shape": "circle", "warpEffect": true, "warpEffectLength": 5, "depthFade": true, "starSize": 4, "backgroundColor": "#202020", "starColor": "#FF0000"
     },
     {
-        "speed": 2, "speedAdjFactor": 0, "density": 5, "shape": "circle", "warpEffect": false, "warpEffectLength": 4, "depthFade": true, "starSize": 15, "backgroundColor": "hsl(263,45%,7%)", "starColor": "#FFFFFF"
+        "speed": 2, "speedAdjFactor": 0, "density": 3, "shape": "circle", "warpEffect": false, "warpEffectLength": 4, "depthFade": false, "starSize": 15, "backgroundColor": "hsl(263,45%,7%)", "starColor": "#FFFFFF"
     },
 
 
