@@ -1,0 +1,118 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+nav {
+    z-index: 2;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+nav p {
+    font-family: "Poppins";
+    font-size: 18px;
+}
+
+nav a {
+    cursor: pointer;
+}
+
+#theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: "Poppins";
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* background-image: url("/bg1.png");
+    background-color: black; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    transition: background-color 0.5s;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.speed {
+    display: flex;
+    flex-direction: column;
+    font-family: Poppins;
+    align-items: center;
+    margin-top: 2.5%;
+    width: 800px;
+    background: linear-gradient(104.75deg, rgba(255, 255, 255, 0.2) 20.77%, rgba(255, 255, 255, 0.15) 74.83%);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border-radius: 60px;
+    padding: 4rem;
+    z-index: 2;
+}
+
+
+
+.typingText {
+    font-weight: "500";
+    font-size: 30px;
+    margin: 1rem;
+    font-family: "Poppins";
+}
+
+.typingSpeed {
+    font-size: 72px;
+    margin: 1rem;
+    font-family: "Poppins";
+}
+
+.inputBox {
+    font-family: "Poppins";
+    background-color: transparent;
+    border: 0.5px solid white;
+    border-radius: 3px;
+    width: 300px;
+    height: 30px;
+    margin-top: 1rem;
+    font-size: 20px;
+    color: white;
+    text-align: center;
+}
+
+.inputBox:focus {
+    outline: none;
+}
+
+span {
+    background-size: 200% 200%;
+    background-image: linear-gradient(to right, black 47%, transparent 0);
+    background-position: right
+}
+
+.currentCursor {
+    background-position: left;
+    transition: background-position 0.1s;
+}
+
+.typedOut {
+    color: #000000;
+}

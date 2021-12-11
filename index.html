@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Speed</title>
+    <meta name="description" content="A simple HTML5 Template for new projects.">
+    <meta name="author" content="SitePoint">
+
+    <meta property="og:title" content="A Basic HTML5 Template">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+    <meta property="og:description" content="A simple HTML5 Template for new projects.">
+    <meta property="og:image" content="image.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- your content here... -->
+    <nav>
+        <p style="margin-left:5rem" id="theme">Change Theme:<a
+                style="margin-left: 10px;display: flex;justify-content: center;" id="themeChange"><img height="28"
+                    width="28" src="./nextTheme.png"></a></p>
+        <p style="margin-right:5rem">Instant Death:</p>
+    </nav>
+    <div class="speed">
+        <p class="typingSpeed">0 WPM</p>
+        <p class="typingText"></p>
+        <input type="text" class="inputBox">
+    </div>
+    <div style="position:fixed; z-index:0; top:0; left:0; width:100%; height:100%;">
+        <canvas id="canvas" style="width:100%; height:100%;"></canvas>
+    </div>
+    <!-- <script src="./js/three.min.js"></script> -->
+    <!-- <script src="js/warpspeed.js"></script> -->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
