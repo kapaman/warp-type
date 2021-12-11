@@ -8,10 +8,13 @@ let SPEED;
 let previousSpeed = speed;
 let typingText = document.querySelector('.typingText');
 let themeChangeButton = document.querySelector('#themeChange');
-
+document.querySelector(".switch input").addEventListener('change', (e) => {
+    instantDeath = e.target.checked;
+});
+let instantDeath = document.querySelector(".switch input").checked;
 let themes = [
     {
-        "speed": 1, "speedAdjFactor": 0, "density": 3, "shape": "circle", "warpEffect": true, "warpEffectLength": 4, "depthFade": true, "starSize": 5, "backgroundColor": "#1F74C9", "starColor": "#FFFFFF",
+        "speed": 1, "speedAdjFactor": 0, "density": 2, "shape": "circle", "warpEffect": true, "warpEffectLength": 4, "depthFade": true, "starSize": 5, "backgroundColor": "#1F74C9", "starColor": "#FFFFFF",
     },
     {
         "speed": 2, "speedAdjFactor": 0, "density": 1, "shape": "circle", "warpEffect": true, "warpEffectLength": 4, "depthFade": true, "starSize": 5, "backgroundColor": "hsl(263,45%,7%)", "starColor": "#FFFFFF"
@@ -20,29 +23,26 @@ let themes = [
         "speed": 2, "speedAdjFactor": 0, "density": 2, "shape": "circle", "warpEffect": true, "warpEffectLength": 5, "depthFade": true, "starSize": 4, "backgroundColor": "#202020", "starColor": "#FF0000"
     },
     {
-        "speed": 2, "speedAdjFactor": 0, "density": 3, "shape": "circle", "warpEffect": false, "warpEffectLength": 4, "depthFade": false, "starSize": 15, "backgroundColor": "hsl(263,45%,7%)", "starColor": "#FFFFFF"
+        "speed": 2, "speedAdjFactor": 0, "density": 2, "shape": "circle", "warpEffect": false, "warpEffectLength": 4, "depthFade": false, "starSize": 15, "backgroundColor": "hsl(263,45%,7%)", "starColor": "#FFFFFF"
     },
-
-
 ]
 
 let typingSpeed = document.querySelector('.typingSpeed');
 let acceleration = 0.001;
-const characters = textSplitChars.map(el => {
-    const span = document.createElement("span");
-    span.innerText = el;
-    typingText.appendChild(span);
-    return span;
-})
+let characters;
 
 // typingText.innerHTML = text[0];
 let timeStart;
 let currentIndex = 0;
-let intervalSet;
+let intervalSet = null;
+let regoButton = document.querySelector(".regoButton");
+regoButton.addEventListener('click', () => {
+    init();
+})
 let inputBox = document.querySelector(".inputBox");
 inputBox.value = "";
 inputBox.focus();
-typingText.childNodes[0].classList.add("currentCursor")
+
 inputBox.addEventListener('input', (e) => {
     e.preventDefault();
     if (e.data === text[0][currentIndex]) {
@@ -50,11 +50,10 @@ inputBox.addEventListener('input', (e) => {
             timeStart = Date.now();
         }
         currentIndex++;
-        if (intervalSet === undefined) {
+        if (intervalSet === null) {
             intervalSet = setInterval(() => {
                 previousSpeed = speed;
                 speed = parseInt(((currentIndex + 1) / 5) * 60000 / (Date.now() - timeStart));
-                console.log({ "speed": SPEED });
                 typingSpeed.innerHTML = speed + " WPM";
                 if (speed <= previousSpeed && speed !== 0) {
                     if (SPEED > 2)
@@ -67,11 +66,18 @@ inputBox.addEventListener('input', (e) => {
                         SPEED += 3;
                     // acceleration = parseFloat(acceleration).toFixed(3);
                 }
-            }, 32);
+            }, 16);
         }
         if (e.data === " ") {
             inputBox.value = "";
         }
+    } else if (instantDeath) {
+        clearInterval(intervalSet);
+        inputBox.value = "";
+        inputBox.blur();
+        inputBox.style.display = "none";
+        regoButton.style.display = "flex";
+        return
     }
 
     if (currentIndex === text[0].length) {
@@ -80,6 +86,8 @@ inputBox.addEventListener('input', (e) => {
         typingText.childNodes[currentIndex - 1].classList.add("typedOut");
         inputBox.value = "";
         inputBox.blur();
+        inputBox.style.display = "none";
+        regoButton.style.display = "flex";
         return;
     }
     typingText.childNodes[currentIndex - 1].classList.remove("currentCursor")
@@ -87,6 +95,31 @@ inputBox.addEventListener('input', (e) => {
     typingText.childNodes[currentIndex - 1].classList.add("typedOut");
 
 })
+
+
+const init = () => {
+    console.log(currentTheme);
+    typingText.innerHTML = "";
+    characters = textSplitChars.map(el => {
+        const span = document.createElement("span");
+        span.innerText = el;
+        typingText.appendChild(span);
+        return span;
+    })
+    typingText.childNodes[0].classList.add("currentCursor")
+    regoButton.style.display = "none";
+    inputBox.style.display = "unset";
+    typingSpeed.innerHTML = 0 + " WPM";
+    inputBox.value = "";
+    inputBox.focus();
+    SPEED = themes[((currentTheme) % themes.length)].speed;
+    intervalSet = null;
+    currentIndex = 0;
+}
+
+
+
+init();
 
 // THREEE JS STUFF
 
@@ -308,6 +341,6 @@ var x = new WarpSpeed("canvas", themes[0]);
 
 themeChangeButton.addEventListener('click', () => {
     x.destroy;
-    x = new WarpSpeed("canvas", themes[(++currentTheme % themes.length)]);
+    x = new WarpSpeed("canvas", themes[((++currentTheme) % themes.length)]);
     inputBox.focus();
 })
