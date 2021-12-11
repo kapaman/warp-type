@@ -11,7 +11,7 @@ let themeChangeButton = document.querySelector('#themeChange');
 
 let themes = [
     {
-        "speed": 1, "speedAdjFactor": 0, "density": 2, "shape": "circle", "warpEffect": true, "warpEffectLength": 4, "depthFade": true, "starSize": 5, "backgroundColor": "#1F74C9", "starColor": "#FFFFFF",
+        "speed": 1, "speedAdjFactor": 0, "density": 3, "shape": "circle", "warpEffect": true, "warpEffectLength": 4, "depthFade": true, "starSize": 5, "backgroundColor": "#1F74C9", "starColor": "#FFFFFF",
     },
     {
         "speed": 2, "speedAdjFactor": 0, "density": 1, "shape": "circle", "warpEffect": true, "warpEffectLength": 4, "depthFade": true, "starSize": 5, "backgroundColor": "hsl(263,45%,7%)", "starColor": "#FFFFFF"

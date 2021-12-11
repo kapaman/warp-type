@@ -37,6 +37,7 @@ body {
     height: 100%;
     width: 100%;
     display: flex;
+    position: relative;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
@@ -60,14 +61,22 @@ canvas {
     flex-direction: column;
     font-family: Poppins;
     align-items: center;
-    margin-top: 2.5%;
     width: 800px;
-    background: linear-gradient(104.75deg, rgba(255, 255, 255, 0.2) 20.77%, rgba(255, 255, 255, 0.15) 74.83%);
+    /* background: linear-gradient(104.75deg, rgba(255, 255, 255, 0.2) 20.77%, rgba(255, 255, 255, 0.15) 74.83%); */
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     border-radius: 60px;
     padding: 4rem;
     z-index: 2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    /* background: radial-gradient(149.6% 149.6% at 49.94% 48.29%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 0, 0, 0) 100%); */
+    background-blend-mode: multiply;
+    border: 0.1px solid #FFFFFF;
+    backdrop-filter: blur(2px);
 }
 
 
@@ -76,12 +85,13 @@ canvas {
     font-weight: "500";
     font-size: 30px;
     margin: 1rem;
+    margin-top: 2rem;
     font-family: "Poppins";
 }
 
 .typingSpeed {
     font-size: 72px;
-    margin: 1rem;
+    margin: 0;
     font-family: "Poppins";
 }
 
@@ -92,7 +102,7 @@ canvas {
     border-radius: 3px;
     width: 300px;
     height: 30px;
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-size: 20px;
     color: white;
     text-align: center;
@@ -104,13 +114,13 @@ canvas {
 
 span {
     background-size: 200% 200%;
-    background-image: linear-gradient(to right, black 47%, transparent 0);
+    background-image: linear-gradient(to right, black 48%, transparent 0);
     background-position: right
 }
 
 .currentCursor {
     background-position: left;
-    transition: background-position 0.1s;
+    transition: background-position 0.2s;
 }
 
 .typedOut {
