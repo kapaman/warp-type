@@ -98,7 +98,6 @@ inputBox.addEventListener('input', (e) => {
 
 
 const init = () => {
-    console.log(currentTheme);
     typingText.innerHTML = "";
     characters = textSplitChars.map(el => {
         const span = document.createElement("span");
