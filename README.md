@@ -1,7 +1,7 @@
 <h1 style="text-align:center;margin-bottom:50px;">warp type</h1>
 
 <br>
-<img src="https://ibb.co/K57nxjk" style="display:block;margin:auto;margin-bottom:30px;" width="90%" height="auto">
+<img src="https://i.ibb.co/YN8gB7M/Screenshot-2021-12-11-164747.png" style="display:block;margin:auto;margin-bottom:30px;" width="90%" height="auto">
 
 
 
