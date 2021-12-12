@@ -62,7 +62,7 @@ canvas {
     font-family: Poppins;
     align-items: center;
     width: 800px;
-    /* background: linear-gradient(104.75deg, rgba(255, 255, 255, 0.2) 20.77%, rgba(255, 255, 255, 0.15) 74.83%); */
+    /* background: linear-gradient(104.75deg, rgba(255, 255, 255, 0.05) 20.77%, rgba(255, 255, 255, 0.05) 74.83%); */
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
     border-radius: 60px;
@@ -73,9 +73,9 @@ canvas {
     top: 50%;
     transform: translate(-50%, -50%);
 
-    /* background: radial-gradient(149.6% 149.6% at 49.94% 48.29%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 0, 0, 0) 100%); */
+    /* background: radial-gradient(149.6% 149.6% at 49.94% 48.29%, rgba(255, 255, 255, 0.1) 0%, rgba(255, 0, 0, 0) 100%); */
     background-blend-mode: multiply;
-    border: 0.1px solid #FFFFFF;
+    border: 0.1px solid #FFFFFF70;
     backdrop-filter: blur(2px);
 }
 
@@ -126,16 +126,17 @@ canvas {
 span {
     background-size: 200% 200%;
     background-image: linear-gradient(to right, black 47%, transparent 0);
-    background-position: right
+    background-position: right;
+    /* transition: background-position 0.2s linear; */
 }
 
 .currentCursor {
     background-position: left;
-    transition: background-position 0.2s;
+    transition: background-position 0.2s linear;
 }
 
 .typedOut {
-    color: #000000;
+    color: #606060;
 }
 
 
